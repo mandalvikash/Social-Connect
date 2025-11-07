@@ -15,12 +15,21 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-// app.use(cors());
+const allowedOrigins = [
+  "https://social-connect-fu3g.vercel.app",
+  "https://social-connect-fu3g-hp50ctmkd-vikash-mandals-projects.vercel.app",
+  "http://localhost:5173"
+];
+
 app.use(cors({
-  origin: [
-    'https://social-connect-fu3g-hp50ctmkd-vikash-mandals-projects.vercel.app',
-    'http://localhost:5173'
-  ],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
