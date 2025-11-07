@@ -16,9 +16,9 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const allowedOrigins = [
-  "https://social-connect-fu3g.vercel.app",
   "https://social-connect-fu3g-hp50ctmkd-vikash-mandals-projects.vercel.app",
-  "http://localhost:5173"
+  "http://localhost:5173",
+  "https://social-connect-d2z4.vercel.app"
 ];
 
 app.use(cors({
