@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-baseURL: 'https://social-connect-gamma.vercel.app/', // Adjust the port if your backend runs on a different one
+baseURL: 'https://social-connect-gamma.vercel.app', // Adjust the port if your backend runs on a different one
 });
 
 API.interceptors.request.use((config) => {
